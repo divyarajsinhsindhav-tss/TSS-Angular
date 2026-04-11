@@ -1,0 +1,66 @@
+<section class="card shadow-sm p-4">
+  <div class="input-group mb-4">
+    <input 
+      type="text" 
+      #taskInput 
+      class="form-control" 
+      placeholder="Enter a task..."
+    >
+    <button 
+      class="btn btn-primary"
+      (click)="addTodo(taskInput.value); taskInput.value=''">
+      Add Task
+    </button>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h4 class="text-primary mb-3">Pending Tasks</h4>
+
+      @for (todo of todos; track todo.id) {
+        @if (!todo.completed) {
+          <div class="card mb-2 p-2 d-flex flex-row justify-content-between align-items-center">
+            
+            <span>{{ todo.task }}</span>
+            
+            <div>
+              <button 
+                class="btn btn-success btn-sm me-2"
+                (click)="completeTodo(todo.id)">
+                Complete
+              </button>
+
+              <button 
+                class="btn btn-danger btn-sm"
+                (click)="removeTodo(todo.id)">
+                Remove
+              </button>
+            </div>
+
+          </div>
+        }
+      }
+    </div>
+    <div class="col-md-6">
+      <h4 class="text-success mb-3">Completed Tasks</h4>
+
+      @for (todo of todos; track todo.id) {
+        @if (todo.completed) {
+          <div class="card mb-2 p-2 d-flex flex-row justify-content-between align-items-center bg-light">
+            
+            <span class="text-decoration-line-through text-muted">
+              {{ todo.task }}
+            </span>
+
+            <button 
+              class="btn btn-outline-danger btn-sm"
+              (click)="removeTodo(todo.id)">
+              Remove
+            </button>
+
+          </div>
+        }
+      }
+    </div>
+
+  </div>
+</section>
