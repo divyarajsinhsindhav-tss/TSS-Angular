@@ -1,0 +1,12 @@
+<div class="layout" style="border: 2px solid;">
+    <header class="header" style="border: 2px solid; margin: 2px;">
+        <ng-content select="[header]"></ng-content>
+    </header>
+    <main class="main" style="border: 2px solid; margin: 2px;">
+        <p>Main</p>
+        <ng-content select="[main]"></ng-content>
+    </main>
+    <footer class="footer" style="border: 2px solid; margin: 2px;">
+        <ng-content select="[footer]"></ng-content>
+    </footer>
+</div>
