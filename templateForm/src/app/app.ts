@@ -12,7 +12,7 @@ import { Student } from './student';
 export class App {
   protected readonly title = signal('templateForm');
 
-  student: Student[] = [];
+  students: Student[] = [];
   hobbies: string[] = [];
   sendData(data: NgForm) {
     const newStudent:Student = {
@@ -22,7 +22,8 @@ export class App {
       country: data.value.country,
       hobbies: this.hobbies
     }
-    this.student.push(newStudent);
+    this.students.push(newStudent);
+    this.hobbies = []
   }
 
   onHobbyChange(event: any) {
