@@ -1,0 +1,11 @@
+<div>
+  <h1>Parent Component</h1>
+
+  <button (click)="toggleChild()" style="background-color: rgb(84, 247, 111); border-bottom: 4px black solid; border-right: 4px black solid; padding: 5px;">Toggle Child</button>
+
+  @if (isChildVisible) {
+    <app-child>
+      <p>Inside Child Content</p>
+    </app-child>
+  }
+</div>
