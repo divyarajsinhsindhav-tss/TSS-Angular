@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TodoService } from '../../core/services/todo.service';
 import { Todo } from '../../core/model/todo';
 
@@ -13,7 +13,7 @@ export class TodoComponent {
 
   todos: Todo[] = [];
 
-  constructor(private todoService: TodoService) {}
+  private todoService = inject(TodoService);
 
   addTodo(task: string) {
     this.todoService.addTodo({

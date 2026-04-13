@@ -11,7 +11,7 @@ export const USER_ROUTES: Routes = [
         loadComponent: () =>
             import('./dashboard/dashboard').then(m => m.Dashboard)
     },
-    {
+    {  
         path: 'application',
         loadComponent: () => 
             import('./application/application').then(m => m.Application)
