@@ -1,0 +1,11 @@
+<div style="border-style: dotted; padding: 2rem;">
+    <h2>Parent</h2>
+    <app-home (messageEvent)="receiveMessage($event)" [message]="messageToChild"></app-home>
+
+    <br>
+    <label for="msgToChild">Message To Child: </label>
+    <input type="text" (input)="sendMessageToChild($event.target.value)" name="msgToChild">
+
+    <p>Message from child: {{ childMessage }}</p>
+</div>
+
