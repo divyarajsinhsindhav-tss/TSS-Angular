@@ -1,0 +1,42 @@
+<section>
+  <div>
+    <h1>Template Form</h1>
+  </div>
+  <div>
+    <form #formRef="ngForm" action="" (ngSubmit)="sendData(formRef)">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" ngModel>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" ngModel>
+      </div>
+      <div>
+        <label for="country">Country:</label>
+        <select name="country" id="country" ngModel>
+          <option value="india">India</option>
+          <option value="usa">USA</option>
+        </select>
+      </div>
+      <div>
+        <label>Hobbies:</label><br>
+
+        <input type="checkbox" id="reading" name="hobbies" value="reading" (change)="onHobbyChange($event)" ngModel>
+        <label for="reading">Reading</label>
+
+        <input type="checkbox" id="sports" name="hobbies" value="sports" (change)="onHobbyChange($event)" ngModel>
+        <label for="sports">Sports</label>
+
+        <input type="checkbox" id="music" name="hobbies" value="music" (change)="onHobbyChange($event)" ngModel>
+        <label for="music">Music</label>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  <div>
+    @for(student of students; track student.id) {
+      
+    }
+  </div>
+</section>
