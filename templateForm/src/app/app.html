@@ -3,6 +3,7 @@
     <h1>Template Form</h1>
   </div>
   <div>
+   <h1 [ngStyle]="{ color: isC ? 'red' : 'blue' }">hiii</h1>
     <form #formRef="ngForm" action="" (ngSubmit)="sendData(formRef)">
       <div>
         <label for="name">Name:</label>
@@ -38,6 +39,9 @@
     @for(student of students; track student.id) {
       <hr>
       Name: {{student.name}}
+      Email: {{student.email}}
+      Country: {{student.country}}
+       Hobbies:{{ student.hobbies.length ? student.hobbies.join(', ') : 'None' }}
       <hr>
     }
   </div>

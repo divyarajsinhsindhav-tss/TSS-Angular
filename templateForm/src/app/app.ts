@@ -2,16 +2,17 @@ import { Component, signal } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { Student } from './student';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsModule],
+  imports: [RouterOutlet, FormsModule, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
   protected readonly title = signal('templateForm');
-
+  isC: boolean = false;
   students: Student[] = [];
   hobbies: string[] = [];
   sendData(data: NgForm) {
@@ -29,7 +30,6 @@ export class App {
   onHobbyChange(event: any) {
     const value = event.target.nextSibling.textContent.trim();
     const checked = event.target.checked;
-
     if (checked) {
       this.hobbies.push(value);
     } else {
