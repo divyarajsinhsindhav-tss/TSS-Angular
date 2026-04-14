@@ -1,0 +1,69 @@
+<div class="form-container">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="form-card">
+
+    <h2>Create Account</h2>
+
+    
+    <div class="form-group">
+      <label>Full Name:</label>
+      <input type="text" formControlName="name" placeholder="Enter your name">
+
+      <small *ngIf="myForm.get('name')?.touched && myForm.get('name')?.errors?.['required']">
+        Name is required
+      </small>
+    </div>
+
+    <div class="form-group">
+        <label for="country">Country</label>
+
+        <select id="country" formControlName="country">
+            <option value="" disabled selected>Select country</option>
+            <option value="india">India</option>
+            <option value="usa">USA</option>
+            <option value="uk">UK</option>
+        </select>
+
+        <small *ngIf="myForm.get('country')?.touched && myForm.get('country')?.errors?.['required']">
+            Country is required
+        </small>
+    </div>
+
+   <div class="form-group">
+      <label>Hobbies</label>
+
+      <div class="checkbox-group">
+        <label class="checkbox-item" *ngFor="let hobby of hobbiesList">
+          <input
+            type="checkbox"
+            [value]="hobby.name"
+            (change)="onCheckboxChange($event)"
+            [checked]="hobbies.value.includes(hobby.name)"
+          />
+          <span>{{ hobby.name }}</span>
+        </label>
+      </div>
+
+      <small *ngIf="myForm.get('hobbies')?.touched && myForm.get('hobbies')?.errors?.['required']">
+        Select at least one hobby
+      </small>
+    </div>
+    <div class="form-group">
+      <label>Email:</label>
+      <input type="email" formControlName="email" placeholder="john@gmail.com">
+
+      <small *ngIf="myForm.get('email')?.touched && myForm.get('email')?.errors?.['required']">
+        Email is required
+      </small>
+
+      <small *ngIf="myForm.get('email')?.touched && myForm.get('email')?.errors?.['pattern']">
+        Email format: john@gmail.com required
+      </small>
+    </div>
+
+    <!-- Button -->
+    <button type="submit">
+      Submit
+    </button>
+
+  </form>
+</div>
