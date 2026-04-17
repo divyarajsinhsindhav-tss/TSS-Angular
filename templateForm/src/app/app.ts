@@ -25,6 +25,7 @@ export class App {
     }
     this.students.push(newStudent);
     this.hobbies = []
+    data.reset()
   }
 
   onHobbyChange(event: any) {
